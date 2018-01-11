@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<a class="btn btn-success" href="http://localhost/projekt/web/app_dev.php/todo/create">Powrót</a>
+<hr>
+<h2 class="page-header">{{todo.name}}</h2>
+<ul class="list-group">
+<li class="list-group-item">Kategoria: {{todo.category}}</li>
+<li class="list-group-item">Cena naprawy: {{todo.price}}</li>
+<li class="list-group-item">Sztuk: {{todo.amount}}</li>
+<li class="list-group-item">Rocznik: {{todo.year|date('Y,F j')}}</li>
+<li class="list-group-item">Opis: <strong>{{todo.desciption}}</strong></li>
+<li class="list-group-item">Czas dodania ticketu: {{todo.getAddDate|date('F j,Y, g:i a')}}</li>
+
+{% endblock %}

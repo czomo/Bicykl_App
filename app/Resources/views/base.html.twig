@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+            <title>{% block title %}Witamy!{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
+	
+ {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+		
+    <!-- Custom styles for this template -->
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="http://localhost/projekt/web/app_dev.php/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/projekt/web/app_dev.php/todo/create">Baza</a>
+            </li>
+            
+			<li class="nav-item">
+              <a class="nav-link" href="http://localhost/projekt/web/app_dev.php/todo/make">Dodaj do bazy</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="http://localhost/projekt/web/app_dev.php/todo/contact">Kontakt</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="http://localhost/projekt/web/app_dev.php/login"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="http://localhost/projekt/web/app_dev.php/register"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rejestracja</button></a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Bicykl</h3>
+      </header>
+
+      <main role="main">
+	  {%for flash_message in app.session.flashbag.get('notice')%}
+		  <div class="alert alert-warning">{{flash_message}}</div>
+			  {%endfor%}
+	    {%for flash_message in app.session.flashbag.get('error')%}
+		  <div class="alert alert-danger">{{flash_message}}</div>
+			  {%endfor%}
+        <div class="jumbotron">
+          {% block body %}{% endblock %}
+        </div>
+
+        <div class="row marketing">
+          
+        </div>
+
+      </main>
+{% block javascripts %}{% endblock %}
+      <footer class="footer">
+        <p>&copy; TD2018</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>

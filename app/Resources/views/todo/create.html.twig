@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Imię</th>
+      <th scope="col">Kategoria</th>
+      <th scope="col">Opis</th>
+	  <th scope="col">Zarządzaj</th>
+	  
+    </tr>
+  </thead>
+  <tbody>
+  {%for todo in todos%}
+    <tr>
+      <th scope="row">{{todo.id}}</th>
+	  <td>{{todo.name}}</td>
+      <td>{{todo.category}}</td>
+	  <td>{{todo.desciption}}</td>
+	  <td>
+	  <a href ="http://localhost/projekt/web/app_dev.php/todo/details/{{todo.id}}" class="btn btn-success">Podgląd</a>
+	  <a href ="http://localhost/projekt/web/app_dev.php/todo/edit/{{todo.id}}" class="btn btn-default">Edytuj</a>
+	  <a href ="http://localhost/projekt/web/app_dev.php/todo/delete/{{todo.id}}" class="btn btn-danger">Usuń</a>
+	  </td>
+      
+    </tr>
+	{%endfor%}
+  </tbody>
+</table>
+{% endblock %}
